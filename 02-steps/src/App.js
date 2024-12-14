@@ -13,7 +13,7 @@ export default function App() {
   const [isOpen, setisOpen] = useState(true);
 
   function handlePrevious() {
-    // Step 2 Updating State based on current state 
+    // Step 2 Updating State based on current state
     if (step > 1) setStep((s) => s - 1);
   }
   function handleNext() {

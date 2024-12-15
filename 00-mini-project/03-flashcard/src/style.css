@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.flashcards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.flashcards div {
+  border: 1px solid #e7e7e7;
+  background-color: #f7f7f7;
+  border-radius: 7px;
+  aspect-ratio: 2 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px 1px rgb(180, 180, 180);
+}
+
+div.selected {
+  color: #fff;
+  font-weight: bold;
+}
+
+.card {
+  animation: flip 1s forwards;
+  transform-style: preserve-3d;
+ 
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+    border: 1px solid #727272;
+    background-color: #ffffff;
+  }
+
+  100% {
+    transform: rotateY(360deg);
+    border: 1px solid #e03131;
+    background-color: #e03131;
+  }
+}

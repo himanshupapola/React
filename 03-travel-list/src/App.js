@@ -1,13 +1,38 @@
-// Now we are implmenting logic of state and props we learned.
+// V Important
 
+// Now we are implmenting logic of state and props we learned.
 // Here we fixed major problem with SPA, on sumbit of a form page reload will be triggred.
 import { useState } from "react";
+
 export default function App() {
+  const [items, setItems] = useState([]);
+
+  // step 2: Modifying state
+  function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
+
+  function handleDeleteItem(id) {
+    setItems((items) => items.filter((item) => item.id !== id));
+  }
+
+  function handleToggleItem(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
+
   return (
     <>
       <Logo />
-      <Form />
-      <PackaginList />
+      <Form onAddItems={handleAddItems} />
+      <PackaginList
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onToggleItem={handleToggleItem}
+      />
       <Stats />
     </>
   );
@@ -22,13 +47,10 @@ function Logo() {
   return <h1>🌴 Far Away 💼</h1>;
 }
 
-// In React, to control the text value that the user enters,
-// we use the concept of controlled components. Instead of directly accessing
-// the DOM to get the input value, we manage it via React state, ensuring the input
-// field and state stay in sync.
-function Form() {
+// In React, to control the text value that the user enters,we use the concept of controlled components. Instead of directly accessingthe DOM to get the input value, we manage it via React state, ensuring the input field and state stay in sync.
+function Form({ onAddItems }) {
   // step 1: Create a react state for the input element
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState();
   const [quantity, setQuantity] = useState(1);
 
   function hadleSubmit(e) {
@@ -39,9 +61,14 @@ function Form() {
       description: description,
       quantity,
       packed: false,
+      //trick to get unique id
       id: Date.now(),
     };
-    console.log(newItem);
+
+    // here we have now items to be packed in list but there's issue:
+    //we have all our componnets like this this is component tree:
+
+    onAddItems(newItem);
 
     setDescription("");
     setQuantity(1);
@@ -73,26 +100,35 @@ function Form() {
   );
 }
 
-function PackaginList() {
+function PackaginList({ items, onDeleteItem, onToggleItem }) {
   return (
     <div className="list">
       <ul>
-        {initialItems.map((item) => (
-          <Item item={item} key={item.id} />
+        {items.map((item) => (
+          <Item
+            item={item}
+            key={item.id}
+            onDeleteItem={onDeleteItem}
+            onToggleItem={onToggleItem}
+          />
         ))}
       </ul>
     </div>
   );
 }
 
-function Item({ item }) {
+function Item({ item, onDeleteItem, onToggleItem }) {
   return (
     <li>
+      <input
+        type="checkbox"
+        value={item.packed}
+        onChange={() => onToggleItem(item.id)}
+      />
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
-        {" "}
-        {item.description}
+        {item.quantity} {item.description}
       </span>
-      <button>❌</button>
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
     </li>
   );
 }

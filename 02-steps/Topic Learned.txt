@@ -1,0 +1,10 @@
+A. Making State: (3 steps)
+
+   Step 1: Define State 
+   const [step, setStep] = useState(1)
+
+   Step 2: Updating State based on Current State
+   if (step > 1) setStep((s) => s - 1)
+
+   Step 3: Using State
+   <div className={step >= 3 ? "active" : ""}>3</div>

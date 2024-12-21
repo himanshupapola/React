@@ -1,0 +1,11 @@
+A. Controlled Element: (3 steps)
+
+   Step 1: Define State
+   const [description, setDescription] = useState();
+
+   Step 2: Attach State To Element
+   <input type="text" placeholder="Item..." value={description} onChange={(e) => setDescription(e.target.value)}/>
+
+B. Concept of Managing State
+
+C. Sorting item by derived State

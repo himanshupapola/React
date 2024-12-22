@@ -8,3 +8,5 @@ A. Making State: (3 steps)
 
    Step 3: Using State
    <div className={step >= 3 ? "active" : ""}>3</div>
+
+B. Children Prop and Resusable Components

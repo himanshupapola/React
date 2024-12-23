@@ -1,0 +1,30 @@
+1. Splitting UI into Components
+
+2. Type of Components(Generally)
+
+3. Components Compoisition
+
+---Before Components Compoisition:
+function App() {
+  const [movies, setMovies] = useState(tempMovieData);
+  return (
+    <>
+      <NavBar movies={movies}/>
+    </>
+  );
+}
+
+    function NavBar({ movies }) {
+      return (<>
+      <Logo />
+      <Search />
+      <NumResults movies={movies} /><>)
+    }
+
+        function NumResults({ movies }) {
+          return (
+            <p className="num-results">
+              Found <strong>{movies.length}</strong> results
+            </p>
+          );
+        }

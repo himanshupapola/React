@@ -2,7 +2,7 @@
 
 2. Type of Components(Generally)
 
-3. Components Compoisition
+3. Components Compoisition(passing element as children)
 
 ---Before Components Compoisition:
 function App() {
@@ -28,3 +28,5 @@ function App() {
             </p>
           );
         }
+
+4. Passing element as Props(alternative to children)

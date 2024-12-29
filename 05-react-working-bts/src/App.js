@@ -89,7 +89,7 @@ function TabContent({ item }) {
       </div>
     </div>
   );
-}
+} 
 
 function DifferentContent() {
   return (
@@ -98,3 +98,4 @@ function DifferentContent() {
     </div>
   );
 }
+    

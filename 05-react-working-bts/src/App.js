@@ -26,9 +26,11 @@ export default function App() {
   );
 }
 
+console.log(<DifferentContent test={23} />);
+
 function Tabbed({ content }) {
   const [activeTab, setActiveTab] = useState(0);
-  
+
   return (
     <div>
       <div className="tabs">
@@ -89,7 +91,7 @@ function TabContent({ item }) {
       </div>
     </div>
   );
-} 
+}
 
 function DifferentContent() {
   return (

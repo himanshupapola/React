@@ -1,0 +1,9 @@
+1. useState: A React Hook that manages and tracks state within functional components.
+
+2. useRef: A Hook that creates a mutable reference object, useful for persisting values or directly accessing DOM elements.
+
+3. useEffect: A Hook for handling side effects like data fetching, subscriptions, or DOM manipulations after rendering.
+
+4. Custom Hooks:
+      useLocalStorage: A custom Hook for reading and writing data to the browser's local storage.
+      useKey: A custom Hook for adding keyboard event listeners and executing actions based on key presses.

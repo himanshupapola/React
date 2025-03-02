@@ -1,0 +1,28 @@
+{
+  "cities": [
+    {
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2027-07-15T08:22:53.976Z",
+      "notes": "",
+      "position": {
+        "lat": 40.46635901755316,
+        "lng": -3.7133789062500004
+      },
+      "id": "17806751"
+    },
+    {
+      "id": "b223",
+      "cityName": "Castillo de Locubin",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2025-02-26T14:15:16.919Z",
+      "notes": "",
+      "position": {
+        "lat": "37.54844983343723",
+        "lng": "-3.9808623084419663"
+      }
+    }
+  ]
+}

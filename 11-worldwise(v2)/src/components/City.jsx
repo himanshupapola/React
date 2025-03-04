@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import styles from "./City.module.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useCities } from "../context/CitiesContext";
 import Spinner from "./Spinner";
 import Button from "./Button";
@@ -22,7 +22,7 @@ function City() {
     function () {
       getCity(id);
     },
-    [id]
+    [id, getCity]
   );
 
   if (isLoading) return <Spinner />;
